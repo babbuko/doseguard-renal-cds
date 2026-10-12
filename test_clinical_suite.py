@@ -15,7 +15,7 @@ def test_elderly_male_vancomycin_adjustment():
     assert 30.0 <= res["crcl_calculated_ml_min"] <= 31.5
 
 def test_severe_renal_failure_metformin_contraindicated():
-    note = "80-year-old female weighing 52 kg, baseline creatinine is 2.8. Needs metformin."
+    note = "80-year-old female weighing 52 kg, baseline creatinine  2.8. Needs metformin."
     res = evaluate_order("P-002", note)
     
     assert res["status"] == "EVALUATED"
@@ -41,7 +41,7 @@ def test_missing_data_triggers_safe_fallback():
 
 if __name__ == "__main__":
     test_elderly_male_vancomycin_adjustment()
-    test_severe_renal_failure_metformin_contraindication()
+    test_severe_renal_failure_metformin_contraindicated()
     test_normal_clearance_suppresses_interruptive_alert()
     test_missing_data_triggers_safe_fallback()
     print(" All clinical validation unit tests PASSED successfully!")
