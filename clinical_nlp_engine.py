@@ -79,7 +79,7 @@ def extract_clinical_entities(clinical_text: str) -> Dict[str, Any]:
         weight_kg = round(val * 0.453592, 1) if "lb" in unit else val
 
     # Extract Serum Creatinine (SCr)
-    scr_match = re.search(r'(?:scr|creatinine|cr)\s*[:=]?\s*(\d(?:\.\d+)?)', text_lower)
+    scr_match = re.search(r'(?:scr|creatinine|cr)(?:\s*(?:is|[:=]))?\s*(\d(?:\.\d+)?)', text_lower)
     scr = float(scr_match.group(1)) if scr_match else None
 
     # Extract Sex / Gender
